@@ -57,9 +57,10 @@ if(feed != null) {
             </div>
             <div>
                 <div className="home">
-                {feed != null ? (
-                    <div>
-
+                <h1>rahul dubey</h1>
+                {feed && feed.length > 0  ? (
+                    <div >
+                    {feed && feed.map((feeds, index) => (
                         <div className="main-b">
                             <div className="post-header-main">
                                 <div className="post-header">
@@ -108,7 +109,7 @@ if(feed != null) {
                                 </div>
                             </div>
                         </div> 
-                     
+                      ))} 
                         <div className="suggestion">
                             <div className="suggestion-profile">
                                 <img className="user-img pointer" src={feed.data[0].user.avatar} />
