@@ -5,55 +5,71 @@ import * as Yup from 'yup';
 import logo from "../assets/logo.png";
 import Signup from './signup';
 import { useHistory } from 'react-router-dom';
+import validate from '../shared/validtion';
+import { toast } from "react-toastify";
+
 
 
 
 const Sign = () => {
     const history = useHistory();
-
+    const validation = validate;
 
     const changeTab = () => {
         history.push({
             pathname:  '/',
         });
     }
-    
-  const validate = Yup.object({
-    fullName: Yup.string()
-      .max(15, 'Must be 15 characters or less')
-      .required('FullName is required'),
-    userName: Yup.string()
-      .max(20, 'Must be 20 characters or less')
-      .required('UserName is required'),
-    email: Yup.string()
-      .email('Email is invalid')
-      .required('Email is required'),
-    password: Yup.string()
-      .min(6, 'Password must be at least 6 charaters')
-      .required('Password is required'),
-  })
+
+    const register = (values) => {
+        let result = fetch('https://instaclone222.herokuapp.com/api/v1/auth/signup',{
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json",
+            "Accept": "application/json"
+        },
+        body:JSON.stringify(values)
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if(data.success){
+            localStorage.setItem("token", data.token);
+            history.push({
+              pathname:  '/home',
+            });
+            toast.success("Register successful");
+            } else {
+                toast.error(data.message);
+            }
+        })
+    }
+
   return (
     <Formik
       initialValues={{
-        fullName: '',
-        userName: '',
+        fullname: '',
+        username: '',
         email: '',
         password: '',
       }}
-      validationSchema={validate}
-      onSubmit={values => {
-        
-      }}
+     
+      validationSchema={validation}
+      
+      onSubmit={(values)=>register(values)}
     >
       {formik => (
-        <div>
-          <img className="logo" src={logo}></img>
+        <div className='main-h'>
+          <div className="logo">
+            <img src={logo}></img>
+          </div>
           <Form>
             <TextField label="Email" name="email" type="email" placeholder="Email "/>
-            <TextField label="fullName" name="fullName" type="text" placeholder="Full Name"/>
-            <TextField label="userName" name="userName" type="text" placeholder="User Name" />
+            <TextField label="fullname" name="fullname" type="text" placeholder="Full Name"/>
+            <TextField label="username" name="username" type="text" placeholder="User Name" />
             <TextField label="password" name="password" type="password" placeholder="Password" />
-            <button className="btn-blue" type="submit">Sign up</button>
+            <div className='btn-l'>
+              <button className="btn-blue" type="submit">Sign up</button>
+            </div>
             <div className='footer-s'>Already have an account? <a className='footer-a' onClick={changeTab}>Login</a></div>
           </Form>
         </div>

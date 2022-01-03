@@ -9,21 +9,20 @@ body {
   -moz-osx-font-smoothing: grayscale; */
 }
 
-.row {
+.main-h {
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-top: 150px !important;
-  width: 30em;
+  margin-top: 120px !important;
+  /* width: 30em; */
+  max-width: 500px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(219, 219, 219);
 }
 
 .logo {
-  height: 95px;
-  margin-left: 90px !important;
-  margin-top: 1.5rem!important;
-    margin-bottom: 1.5rem!important;
-    margin-right: auto !important;
+  max-width: 200px;
+  margin: auto;
+  padding: 30px 0px 30px 0px;
 }
 
 .input {
@@ -42,8 +41,8 @@ body {
     color: rgb(255, 255, 255) !important;
     border: 1px solid rgb(0, 149, 246) !important;
     cursor: pointer !important;
-    width: 85%;
-    margin-left: 33px;
+    width: 100%;
+    /* margin-left: 33px; */
     padding: 15px;
     border-radius: 5px;
     font-size: 20px;
@@ -58,4 +57,259 @@ body {
   color: rgb(0, 149, 246);
   cursor: pointer;
   text-decoration: none;
+}
+
+.header-h {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 1.2rem 0px;
+    z-index: 10;
+}
+
+.header-h nav {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 1200px;
+}
+
+.header-h nav img {
+  position: relative;
+    top: 6px;
+}
+
+a {
+  text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.search {
+  padding: 0.4rem 0.6rem;
+  background: rgb(250, 250, 250);
+  border: 1px solid rgb(219, 219, 219);
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.header-e {
+  display: flex;
+    position: relative;
+    top: 3px;
+    list-style-type: none;
+}
+
+.header-e li {
+  margin-left: 1rem;
+}
+
+.btn-l {
+  margin: auto;
+  max-width: 253px;
+}
+
+.maindiv {
+  padding: 10px !important;
+}
+
+.logo-h {
+  height: 50px;
+}
+
+.icon {
+  font-size: xx-large;
+}
+
+.main-b {
+  width: 800px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(219, 219, 219);
+  margin-bottom: 1.5rem;
+}
+
+.home {
+  max-width: 1160px;
+  margin: 8.5rem auto 4rem;
+}
+
+.suggestion {
+  width: 280px;
+    margin-top: 3rem;
+    position: fixed;
+    top: 6rem;
+    left: 70.5%;
+}
+
+.post-header-main {
+  max-width: 800px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.post-header {
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.profile {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-right: 1rem;
+}
+
+.post-img {
+  width: 100%;
+    height: 100%;
+}
+
+.post-action {
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 1rem 1rem 0.5rem;
+}
+
+.post-action svg {
+  margin-right: 1rem;
+  height: 30px;
+  width: 30px;
+}
+
+.post-action .post-last {
+  margin-left: auto;
+}
+
+.like-comment {
+  padding: 0.5rem 0.8em 1.5rem;
+  font-size: x-large;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.name {
+  padding-right: 0.3rem;
+}
+
+.view-all {
+  color: rgb(178, 178, 178);
+  cursor: pointer;
+}
+
+.more-comment {
+  display: flex;
+}
+
+.more-comment span{
+  padding-right: 0.4rem;
+}
+
+.time {
+  color: rgb(178, 178, 178);
+}
+
+.no-margin{
+  margin: 0px !important;
+}
+
+.add-comment textarea {
+  height: 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    border-image: initial;
+    border-top: 1px solid rgb(219, 219, 219);
+    resize: none;
+    padding: 1rem 0px 0px 1rem;
+    font-size: 1rem;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.suggestion-profile {
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.user-img {
+  object-fit: cover;
+    margin-right: 1rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+}
+
+.user-info span {
+  color: rgb(178, 178, 178);
+}
+
+.suggestion-content {
+  margin-top: 1.8rem;
+}
+
+.suggestion-content div {
+  width: 230px;
+}
+
+.suggestions-usercard {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.suggestion-row {
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.suggestion-content img {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+}
+
+.user-image {
+  object-fit: cover;
+    margin-right: 1rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+}
+
+.follow {
+  color: rgb(0, 149, 246);
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .suggestion {
+    display: none;
+  }
+  .main-b {
+    margin: auto !important;
+  }
+}
+
+.rahul {
+  height: 100px;
+  background-color: brown;
 }
