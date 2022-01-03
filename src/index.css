@@ -313,3 +313,7 @@ a {
   height: 100px;
   background-color: brown;
 }
+
+.liked {
+  color: red;
+}
