@@ -57,9 +57,10 @@ const Home = () => {
             <div>
                 <div className="home">
                 <h1>rahul dubey</h1>
-                {feed && feed.length >0  ? (
-                    <div className="rahul">
-                        { feed?.map((feeds) => {
+                {feed && feed.length > 0  ? (
+                    <div >
+                    {feed &&
+                      feed.map((feeds, index) => (
                         <div className="main-b">
                             <div className="post-header-main">
                                 <div className="post-header">
@@ -100,7 +101,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div> 
-                        })}
+                      ))} 
                         <div className="suggestion">
                             <div className="suggestion-profile">
                                 {/* <img className="user-img pointer" src={feed.datauser.avatar} /> */}
