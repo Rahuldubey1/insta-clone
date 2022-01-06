@@ -33,6 +33,17 @@ const Sign = () => {
         .then(data => {
             console.log(data)
             if(data.success){
+              let user = fetch('https://instaclone222.herokuapp.com/api/v1/auth/me',{
+                method:'GET',
+                headers:{
+                    "Content-Type":"application/json",
+                    "Accept": "application/json",
+                    "Authorization" : `Bearer ${data.token}`
+                },
+                }).then(response => response.json())
+                .then(data => {
+                    localStorage.setItem("user", JSON.stringify(data.data));
+                })
             localStorage.setItem("token", data.token);
             history.push({
               pathname:  '/home',
@@ -59,7 +70,7 @@ const Sign = () => {
     >
       {formik => (
         <div className='main-h'>
-          <div className="logo">
+          <div className="logo pointer">
             <img src={logo}></img>
           </div>
           <Form>
@@ -68,9 +79,9 @@ const Sign = () => {
             <TextField label="username" name="username" type="text" placeholder="User Name" />
             <TextField label="password" name="password" type="password" placeholder="Password" />
             <div className='btn-l'>
-              <button className="btn-blue" type="submit">Sign up</button>
+              <button className="btn-blue pointer" type="submit">Sign up</button>
             </div>
-            <div className='footer-s'>Already have an account? <a className='footer-a' onClick={changeTab}>Login</a></div>
+            <div className='footer-s'>Already have an account? <a className='footer-a pointer' onClick={changeTab}>Login</a></div>
           </Form>
         </div>
       )}

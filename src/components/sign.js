@@ -32,7 +32,20 @@ const Sign = () => {
             body:JSON.stringify(values)
         }).then(response => response.json())
         .then(data => {
+            console.log(data.token)
             if(data.success){
+                let user = fetch('https://instaclone222.herokuapp.com/api/v1/auth/me',{
+                method:'GET',
+                headers:{
+                    "Content-Type":"application/json",
+                    "Accept": "application/json",
+                    "Authorization" : `Bearer ${data.token}`
+                },
+                // body:JSON.stringify(values)
+                }).then(response => response.json())
+                .then(data => {
+                    localStorage.setItem("user", JSON.stringify(data.data));
+                })
             localStorage.setItem("token", data.token);
             history.push({
                 pathname:  '/home',
@@ -64,7 +77,7 @@ const Sign = () => {
         >
         {formik => (
             <div className='main-h'>
-            <div className="logo" >
+            <div className="logo pointer" >
                 <img src={logo}></img>
             </div>
             <Form>
@@ -72,9 +85,9 @@ const Sign = () => {
                 />
                 <TextField label="password" name="password" type="password" placeholder="mypassword" />
                 <div className='btn-l'>
-                    <button className="btn-blue" type="submit">Log In</button>
+                    <button className="btn-blue pointer" type="submit">Log In</button>
                 </div>
-                <div className='footer-s'>Don't have an account? <a className='footer-a' onClick={changeTab}>Sign up</a></div>
+                <div className='footer-s'>Don't have an account? <a className='footer-a pointer' onClick={changeTab}>Sign up</a></div>
             </Form>
             </div>
         )}
